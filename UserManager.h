@@ -9,19 +9,20 @@ using namespace std;
 
 class UserManager {
 
-    const int  LOGGED_IN_USER_ID;
+    int  loggedInUserId;
     vector <User> users;
 
     User typeNewUserdata();
     int getNewUserId();
 
 public:
-    UserManager(int userID): LOGGED_IN_USER_ID(userID){
+    UserManager() {
+        loggedInUserId = 0;
     }
 
     bool doesLoginExist(string login);
-    void userLogin();
-    void userRegistartion();
+    void userLogin(vector <User>& users);
+    void userRegistartion(vector <User> &users);
     void changePassword();
     bool isUserLoggedIn();
 };
