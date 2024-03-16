@@ -9,7 +9,7 @@ using namespace std;
 int main()
 {
     vector <User> users;
-    UserManager example;
+    UserManager example("users");
 
     example.userRegistartion(users);
     example.userRegistartion(users);

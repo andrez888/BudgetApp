@@ -4,11 +4,12 @@
 #include <iostream>
 #include "User.h"
 #include <vector>
+#include "UserFile.h"
 
 using namespace std;
 
 class UserManager {
-
+    UserFile userFile;
     int  loggedInUserId;
     vector <User> users;
 
@@ -16,7 +17,7 @@ class UserManager {
     int getNewUserId();
 
 public:
-    UserManager() {
+    UserManager(string userFileName) : userFile(userFileName) {
         loggedInUserId = 0;
     }
 

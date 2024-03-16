@@ -70,6 +70,7 @@ void UserManager::userRegistartion(vector <User> &users) {
         User user = typeNewUserdata();
 
         users.push_back(user);
+        userFile.addUserToFile(user);
 }
 
 void UserManager::changePassword() {}
