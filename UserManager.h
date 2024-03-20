@@ -19,13 +19,15 @@ class UserManager {
 public:
     UserManager(string userFileName) : userFile(userFileName) {
         loggedInUserId = 0;
+        users = userFile.loadUsersFromFile();
     }
 
     bool doesLoginExist(string login);
-    void userLogin(vector <User>& users);
-    void userRegistartion(vector <User> &users);
+    void userLogin();
+    void userRegistartion();
     void changePassword();
     bool isUserLoggedIn();
+    void showVector();
 };
 
 #endif

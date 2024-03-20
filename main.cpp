@@ -11,8 +11,9 @@ int main()
     vector <User> users;
     UserManager example("users");
 
-    example.userRegistartion(users);
-    example.userRegistartion(users);
-    example.userLogin(users);
+    //example.userRegistartion();
+    //example.userRegistartion();
+    //example.userLogin();
+    example.showVector();
     return 0;
 }

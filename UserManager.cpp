@@ -40,7 +40,7 @@ bool UserManager::doesLoginExist(string login) {
     return false;
 }
 
-void UserManager::userLogin(vector <User>& users) {
+void UserManager::userLogin() {
     string inputLogin = "";
     string inputPassword = "";
 
@@ -66,7 +66,7 @@ void UserManager::userLogin(vector <User>& users) {
     system("pause");
 }
 
-void UserManager::userRegistartion(vector <User> &users) {
+void UserManager::userRegistartion() {
         User user = typeNewUserdata();
 
         users.push_back(user);
@@ -80,5 +80,11 @@ bool UserManager::isUserLoggedIn() {
         return true;
     }else{
         return false;
+    }
+}
+
+void UserManager::showVector(){
+    for(auto x: users){
+        cout << x.name <<" "<<x.surname<<" " <<x.id<<" "<<x.login<<" " <<x.password<<endl;
     }
 }

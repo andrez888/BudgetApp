@@ -3,6 +3,7 @@
 
 #include "Markup.h"
 #include <iostream>
+#include <vector>
 #include "User.h"
 
 using namespace std;
@@ -14,6 +15,7 @@ public:
     UserFile(string fileName) : FILE_NAME(fileName){
     }
     void addUserToFile(const User &user);
+    vector <User> loadUsersFromFile();
 
 
 };
