@@ -27,7 +27,7 @@ User UserManager:: typeNewUserdata() {
     cout << endl << "Type password :";
     cin >> user.password;
 
-    cout << endl << "Your account has been created ";
+    cout << endl << "Your account has been created" << endl;
     system("pause");
     return user;
 }
@@ -54,6 +54,8 @@ void UserManager::userLogin() {
             cin >> inputPassword;
                 if(user.password == inputPassword){
                     loggedInUserId = user.id;
+                    cout << "You have been logged in succesfully"<<endl;
+                    system("pause");
                     return;
                 }
             }

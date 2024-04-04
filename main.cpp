@@ -1,5 +1,5 @@
 #include <iostream>
-#include "UserManager.h"
+#include "BudgetManager.h"
 #include "User.h"
 #include <vector>
 
@@ -8,12 +8,29 @@ using namespace std;
 
 int main()
 {
-    vector <User> users;
-    UserManager example("users");
+    BudgetManager budgetManager("users.xml");
+    char choice;
 
-    //example.userRegistartion();
-    //example.userRegistartion();
-    //example.userLogin();
-    example.showVector();
+    while(1){
+        if(1){
+            choice = budgetManager.chooseOptionFromUserMenu();
+        switch(choice){
+        case '1':
+            budgetManager.loginUser();
+            break;
+        case '2':
+            budgetManager.registrationUser();
+            break;
+        case '3':
+            exit(0);
+            break;
+        default:
+            cout << "Incorrect choice" <<endl;
+            system("pause");
+            break;
+        }
+    }
+    }
+
     return 0;
 }
