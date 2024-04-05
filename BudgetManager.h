@@ -14,7 +14,7 @@ public:
 
     }
     char chooseOptionFromUserMenu();
-    char chooseOptionFromBudgetBook();
+    char chooseOptionFromTransactionManager();
     void loginUser();
     void registrationUser();
     bool isUserLoggedIn();

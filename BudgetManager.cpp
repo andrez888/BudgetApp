@@ -15,7 +15,24 @@
 
     return choice;
  }
- char BudgetManager::chooseOptionFromBudgetBook(){
+ char BudgetManager::chooseOptionFromTransactionManager(){
+     system("cls");
+
+    char choice;
+    cout << "___________Budget book_____________" << endl;
+    cout << "---------------------------------------------- " << endl;
+    cout <<"1. Add new income" << endl;
+    cout <<"2. Add new expense" << endl;
+    cout << "3. Show balance from previous month" <<endl;
+    cout << "4. Show balance from current month" <<endl;
+    cout <<"5. Show balance from selected period" << endl;
+    cout <<"6.Change password " << endl;
+    cout <<"7. Log out" << endl;
+    cout <<"Your choice: " << endl;
+
+    cin >> choice;
+
+    return choice;
  }
  void BudgetManager::loginUser(){
     userManager.userLogin();

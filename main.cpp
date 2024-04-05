@@ -12,7 +12,7 @@ int main()
     char choice;
 
     while(1){
-        if(1){
+        if(!budgetManager.isUserLoggedIn()){
             choice = budgetManager.chooseOptionFromUserMenu();
         switch(choice){
         case '1':
@@ -29,6 +29,36 @@ int main()
             system("pause");
             break;
         }
+    }else{
+        choice = budgetManager.chooseOptionFromTransactionManager();
+        switch(choice){
+        case '1':
+
+            break;
+        case '2':
+
+            break;
+        case '3':
+
+            break;
+             case '4':
+
+            break;
+            case '5':
+
+            break;
+        case '6':
+            exit(0);
+            break;
+            case '7':
+
+            break;
+        default:
+            cout << "Incorrect choice" <<endl;
+            system("pause");
+            break;
+
+    }
     }
     }
 
