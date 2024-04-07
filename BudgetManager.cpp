@@ -11,7 +11,7 @@
     cout <<"3.Quit" << endl;
     cout <<"Your choice: " << endl;
 
-    cin >> choice;
+    choice = Utils::getCharacter();
 
     return choice;
  }
@@ -30,20 +30,33 @@
     cout <<"7. Log out" << endl;
     cout <<"Your choice: " << endl;
 
-    cin >> choice;
+    choice = Utils::getCharacter();
 
     return choice;
  }
- void BudgetManager::loginUser(){
+void BudgetManager::loginUser(){
     userManager.userLogin();
+    if(userManager.isUserLoggedIn()){
+        transactionManager = new TransactionManager(userManager.getLoggedInUserId());
+    }
  }
+
 void BudgetManager::registrationUser(){
     userManager.userRegistartion();
 }
+
 bool BudgetManager::isUserLoggedIn(){
     if(userManager.isUserLoggedIn()){
         return true;
     }else{
         return false;
     }
+}
+
+void BudgetManager::addNewExpense(){
+    transactionManager->addNewExpense();
+}
+
+void BudgetManager::addNewIncome(){
+    transactionManager->addNewIncome();
 }

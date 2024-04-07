@@ -5,6 +5,7 @@
 #include "User.h"
 #include <vector>
 #include "UserFile.h"
+#include "Utils.h"
 
 using namespace std;
 
@@ -28,6 +29,7 @@ public:
     void changePassword();
     bool isUserLoggedIn();
     void showVector();
+    int getLoggedInUserId();
 };
 
 #endif

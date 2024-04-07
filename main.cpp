@@ -33,10 +33,10 @@ int main()
         choice = budgetManager.chooseOptionFromTransactionManager();
         switch(choice){
         case '1':
-
+                budgetManager.addNewIncome();
             break;
         case '2':
-
+                budgetManager.addNewExpense();
             break;
         case '3':
 

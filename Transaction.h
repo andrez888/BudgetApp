@@ -4,7 +4,7 @@ using namespace std;
 
 struct Transaction {
 
-    int transactionId;
+    int Id;
     int userId;
     int date;
     string item;

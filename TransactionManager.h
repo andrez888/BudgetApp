@@ -2,6 +2,8 @@
 #define TRANSACTIONMANAGER_H
 
 #include "Transaction.h"
+#include "Utils.h"
+#include <vector>
 
 using namespace std;
 class TransactionManager {
@@ -13,7 +15,10 @@ class TransactionManager {
     Transaction typeNewExpense() ;
     Transaction typeNewIncome();
 public:
-    void addNewExpesne();
+    TransactionManager(int loggedInUserId) :
+        LOGGED_IN_USER_ID(loggedInUserId){
+    }
+    void addNewExpense();
     void addNewIncome();
 
     void ShowBalanceSheetofCurrentMonth();

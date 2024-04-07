@@ -15,17 +15,17 @@ User UserManager:: typeNewUserdata() {
     user.id = getNewUserId();
 
     cout << "Type first name : ";
-    cin>>user.name;
+    user.name = Utils::readLine();
 
     cout << endl <<"Type surname: ";
-    cin >> user.surname;
+    user.surname = Utils::readLine();
     do {
         cout << endl << "Type your login :";
-        cin >> user.login;
+         user.login = Utils::readLine();
     } while(doesLoginExist(user.login));
 
     cout << endl << "Type password :";
-    cin >> user.password;
+    user.password = Utils::readLine();
 
     cout << endl << "Your account has been created" << endl;
     system("pause");
@@ -45,13 +45,13 @@ void UserManager::userLogin() {
     string inputPassword = "";
 
     cout << "Enter your login: ";
-    cin >> inputLogin;
+     inputLogin = Utils::readLine();
 
     for(User user : users){
         if(user.login == inputLogin){
         for(int attempts = 3 ; attempts > 0; attempts-- ){
             cout << endl << "Enter your password, you have "<<attempts<<" attempts: ";
-            cin >> inputPassword;
+            inputPassword = Utils::readLine();
                 if(user.password == inputPassword){
                     loggedInUserId = user.id;
                     cout << "You have been logged in succesfully"<<endl;
@@ -89,4 +89,8 @@ void UserManager::showVector(){
     for(auto x: users){
         cout << x.name <<" "<<x.surname<<" " <<x.id<<" "<<x.login<<" " <<x.password<<endl;
     }
+}
+
+int UserManager::getLoggedInUserId(){
+    return loggedInUserId;
 }

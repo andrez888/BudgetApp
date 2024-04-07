@@ -21,4 +21,11 @@
 <Login>ande</Login>
 <Password>123</Password>
 </User>
+<User>
+<UserName/>
+<UserSurname>andre</UserSurname>
+<UserId>4</UserId>
+<Login>1234</Login>
+<Password>1</Password>
+</User>
 </Users>
