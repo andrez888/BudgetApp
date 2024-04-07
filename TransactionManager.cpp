@@ -8,6 +8,7 @@ void TransactionManager::addNewExpense(){
     transaction = typeNewExpense();
 
     expenses.push_back(transaction);
+    expensesFile.addNewTransactionToFile(transaction);
 }
 
 void TransactionManager::addNewIncome(){
@@ -18,6 +19,7 @@ void TransactionManager::addNewIncome(){
     transaction = typeNewIncome();
 
     incomes.push_back(transaction);
+    incomesFile.addNewTransactionToFile(transaction);
 }
 
 Transaction TransactionManager::typeNewExpense(){
@@ -25,7 +27,7 @@ Transaction TransactionManager::typeNewExpense(){
     string tempAmount;
     string tempDate;
 
-    transaction.Id = 1;
+
     transaction.userId = LOGGED_IN_USER_ID;
 
     cout << "Enter the expense date. If you'd like current date press y" <<endl;
@@ -39,9 +41,32 @@ Transaction TransactionManager::typeNewExpense(){
      tempAmount = Utils::readLine();
     transaction.amount = stod(tempAmount);
 
+    cout << "New expense has been added" << endl;
+    system("pause");
+
     return transaction;
 }
 
 Transaction TransactionManager::typeNewIncome(){
+        Transaction transaction;
+    string tempAmount;
+    string tempDate;
 
+    transaction.userId = LOGGED_IN_USER_ID;
+
+    cout << "Enter the income date. If you'd like current date press y" <<endl;
+   tempDate = Utils::readLine();
+    transaction.date = stoi(tempDate);
+
+    cout << "Enter the income name"<<endl;
+    transaction.item = Utils::readLine();
+
+    cout << "Enter the icome amount" << endl;
+     tempAmount = Utils::readLine();
+    transaction.amount = stod(tempAmount);
+
+    cout << "New income has been added" << endl;
+    system("pause");
+
+    return transaction;
 }

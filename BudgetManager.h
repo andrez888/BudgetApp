@@ -11,9 +11,12 @@ using namespace std;
 class  BudgetManager{
     UserManager userManager;
     TransactionManager *transactionManager;
+    const string FILE_WITH_EXPENSES_NAME;
+    const string FILE_WITH_INCOMES_NAME;
 
 public:
-    BudgetManager(string fileName): userManager(fileName){
+    BudgetManager(string userFileName, string expensesFileName, string incomesFileName):
+        userManager(userFileName), FILE_WITH_EXPENSES_NAME(expensesFileName), FILE_WITH_INCOMES_NAME(incomesFileName) {
         transactionManager = NULL;
     }
     ~BudgetManager(){

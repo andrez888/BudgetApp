@@ -2,6 +2,7 @@
 #define TRANSACTIONMANAGER_H
 
 #include "Transaction.h"
+#include "FileWithTransactions.h"
 #include "Utils.h"
 #include <vector>
 
@@ -11,12 +12,14 @@ class TransactionManager {
     //fileWithTransactions : FileWithTransactions
     vector <Transaction> incomes;
     vector <Transaction> expenses;
+    FileWithTransactions expensesFile;
+    FileWithTransactions incomesFile;
 
     Transaction typeNewExpense() ;
     Transaction typeNewIncome();
 public:
-    TransactionManager(int loggedInUserId) :
-        LOGGED_IN_USER_ID(loggedInUserId){
+    TransactionManager(int loggedInUserId, string expensesFileName, string incomesFileName) :
+        LOGGED_IN_USER_ID(loggedInUserId), expensesFile( expensesFileName), incomesFile(incomesFileName){
     }
     void addNewExpense();
     void addNewIncome();

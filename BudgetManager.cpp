@@ -26,7 +26,7 @@
     cout << "3. Show balance from previous month" <<endl;
     cout << "4. Show balance from current month" <<endl;
     cout <<"5. Show balance from selected period" << endl;
-    cout <<"6.Change password " << endl;
+    cout <<"6. Change password " << endl;
     cout <<"7. Log out" << endl;
     cout <<"Your choice: " << endl;
 
@@ -37,7 +37,7 @@
 void BudgetManager::loginUser(){
     userManager.userLogin();
     if(userManager.isUserLoggedIn()){
-        transactionManager = new TransactionManager(userManager.getLoggedInUserId());
+        transactionManager = new TransactionManager(userManager.getLoggedInUserId(), FILE_WITH_EXPENSES_NAME, FILE_WITH_INCOMES_NAME);
     }
  }
 

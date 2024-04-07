@@ -1,0 +1,10 @@
+<?xml version="1.15" encoding="UTF-8"?>
+<Transactions>
+<Transaction>
+<TransactionId>1</TransactionId>
+<UserId>1</UserId>
+<Date>3</Date>
+<Item>totek</Item>
+<Amount>20</Amount>
+</Transaction>
+</Transactions>
