@@ -8,8 +8,8 @@
 
 using namespace std;
 class TransactionManager {
+
     const int LOGGED_IN_USER_ID;
-    //fileWithTransactions : FileWithTransactions
     vector <Transaction> incomes;
     vector <Transaction> expenses;
     FileWithTransactions expensesFile;
@@ -19,7 +19,9 @@ class TransactionManager {
     Transaction typeNewIncome();
 public:
     TransactionManager(int loggedInUserId, string expensesFileName, string incomesFileName) :
-        LOGGED_IN_USER_ID(loggedInUserId), expensesFile( expensesFileName), incomesFile(incomesFileName){
+        LOGGED_IN_USER_ID(loggedInUserId), expensesFile( expensesFileName), incomesFile(incomesFileName) {
+            expenses = expensesFile.loadTransactionsFromFile(LOGGED_IN_USER_ID);
+            incomes = incomesFile.loadTransactionsFromFile(LOGGED_IN_USER_ID);
     }
     void addNewExpense();
     void addNewIncome();
@@ -27,7 +29,6 @@ public:
     void ShowBalanceSheetofCurrentMonth();
     void ShowBalanceSheetofPreviousMonth();
     void ShowSheetofSelectedPeriod();
-
 };
 
 #endif

@@ -1,6 +1,6 @@
 #include "TransactionManager.h"
 
-void TransactionManager::addNewExpense(){
+void TransactionManager::addNewExpense() {
     Transaction transaction;
 
     system("cls");
@@ -11,7 +11,7 @@ void TransactionManager::addNewExpense(){
     expensesFile.addNewTransactionToFile(transaction);
 }
 
-void TransactionManager::addNewIncome(){
+void TransactionManager::addNewIncome() {
     Transaction transaction;
 
     system("cls");
@@ -22,7 +22,7 @@ void TransactionManager::addNewIncome(){
     incomesFile.addNewTransactionToFile(transaction);
 }
 
-Transaction TransactionManager::typeNewExpense(){
+Transaction TransactionManager::typeNewExpense() {
     Transaction transaction;
     string tempAmount;
     string tempDate;
@@ -31,14 +31,14 @@ Transaction TransactionManager::typeNewExpense(){
     transaction.userId = LOGGED_IN_USER_ID;
 
     cout << "Enter the expense date. If you'd like current date press y" <<endl;
-   tempDate = Utils::readLine();
+    tempDate = Utils::readLine();
     transaction.date = stoi(tempDate);
 
     cout << "Enter the expense name"<<endl;
     transaction.item = Utils::readLine();
 
     cout << "Enter the expense amount" << endl;
-     tempAmount = Utils::readLine();
+    tempAmount = Utils::readLine();
     transaction.amount = stod(tempAmount);
 
     cout << "New expense has been added" << endl;
@@ -47,22 +47,22 @@ Transaction TransactionManager::typeNewExpense(){
     return transaction;
 }
 
-Transaction TransactionManager::typeNewIncome(){
-        Transaction transaction;
+Transaction TransactionManager::typeNewIncome() {
+    Transaction transaction;
     string tempAmount;
     string tempDate;
 
     transaction.userId = LOGGED_IN_USER_ID;
 
     cout << "Enter the income date. If you'd like current date press y" <<endl;
-   tempDate = Utils::readLine();
+    tempDate = Utils::readLine();
     transaction.date = stoi(tempDate);
 
     cout << "Enter the income name"<<endl;
     transaction.item = Utils::readLine();
 
     cout << "Enter the icome amount" << endl;
-     tempAmount = Utils::readLine();
+    tempAmount = Utils::readLine();
     transaction.amount = stod(tempAmount);
 
     cout << "New income has been added" << endl;
