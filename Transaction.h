@@ -6,7 +6,7 @@
 using namespace std;
 
 struct Transaction {
-
+    int id;
     int userId;
     int date;
     string item;

@@ -32,6 +32,24 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="BudgetManager.cpp" />
+		<Unit filename="BudgetManager.h" />
+		<Unit filename="DateManager.cpp" />
+		<Unit filename="DateManager.h" />
+		<Unit filename="FileWithTransactions.cpp" />
+		<Unit filename="FileWithTransactions.h" />
+		<Unit filename="Markup.cpp" />
+		<Unit filename="Markup.h" />
+		<Unit filename="Transaction.h" />
+		<Unit filename="TransactionManager.cpp" />
+		<Unit filename="TransactionManager.h" />
+		<Unit filename="User.h" />
+		<Unit filename="UserFile.cpp" />
+		<Unit filename="UserFile.h" />
+		<Unit filename="UserManager.cpp" />
+		<Unit filename="UserManager.h" />
+		<Unit filename="Utils.cpp" />
+		<Unit filename="Utils.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

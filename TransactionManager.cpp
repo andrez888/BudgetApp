@@ -27,7 +27,7 @@ Transaction TransactionManager::typeNewExpense() {
     string tempAmount;
     string tempDate;
 
-
+     transaction.id = expensesFile.getTransactionLastId();
     transaction.userId = LOGGED_IN_USER_ID;
 
     cout << "Enter the expense date. If you'd like current date press y" <<endl;
@@ -52,11 +52,13 @@ Transaction TransactionManager::typeNewIncome() {
     string tempAmount;
     string tempDate;
 
+    transaction.id = incomesFile.getTransactionLastId();
     transaction.userId = LOGGED_IN_USER_ID;
-
-    cout << "Enter the income date. If you'd like current date press y" <<endl;
+    do{
+    cout << "Enter the income date in format yyyy-mm-dd. If you'd like current date press y" <<endl;
     tempDate = Utils::readLine();
-    transaction.date = stoi(tempDate);
+    }while( !DateManager::validateDate(tempDate) );
+    transaction.date=5;
 
     cout << "Enter the income name"<<endl;
     transaction.item = Utils::readLine();

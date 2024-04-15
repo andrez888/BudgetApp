@@ -16,7 +16,7 @@ void FileWithTransactions::addNewTransactionToFile(Transaction transaction) {
     xml.IntoElem();
     xml.AddElem("Transaction");
     xml.IntoElem();
-    xml.AddElem("TransactionId", transactionLastId + 1);
+    xml.AddElem("TransactionId", transaction.id);
     transactionLastId++;
     xml.AddElem("UserId", transaction.userId);
     xml.AddElem("Date", transaction.date);
@@ -25,11 +25,6 @@ void FileWithTransactions::addNewTransactionToFile(Transaction transaction) {
     xml.OutOfElem(); // Move out of <User>
 
     xml.Save(FILE_NAME);
-
-}
-
-int FileWithTransactions::getTransactionLastId() {
-
 
 }
 
@@ -53,7 +48,8 @@ vector <Transaction>  FileWithTransactions::loadTransactionsFromFile(int loggedI
         Transaction transaction;
         xml.IntoElem();
         xml.FindElem("TransactionId");
-        transactionLastId = stoi(xml.GetData());
+        transaction.id = stoi(xml.GetData());
+        transactionLastId = transaction.id;
         xml.FindElem("UserId");
         int loadedUserId = stoi(xml.GetData());
         if (loadedUserId != loggedInUserId) { // Check against the provided loggedInUserId
@@ -75,5 +71,8 @@ vector <Transaction>  FileWithTransactions::loadTransactionsFromFile(int loggedI
 
 
     return transactions;
+}
 
+int FileWithTransactions::getTransactionLastId(){
+    return transactionLastId;
 }

@@ -4,7 +4,9 @@
 #include "Transaction.h"
 #include "FileWithTransactions.h"
 #include "Utils.h"
+#include "DateManager.h"
 #include <vector>
+#include <iostream>
 
 using namespace std;
 class TransactionManager {
