@@ -25,14 +25,16 @@ void TransactionManager::addNewIncome() {
 Transaction TransactionManager::typeNewExpense() {
     Transaction transaction;
     string tempAmount;
-    string tempDate;
+    string date;
 
-     transaction.id = expensesFile.getTransactionLastId();
+    transaction.id = expensesFile.getTransactionLastId();
     transaction.userId = LOGGED_IN_USER_ID;
 
-    cout << "Enter the expense date. If you'd like current date press y" <<endl;
-    tempDate = Utils::readLine();
-    transaction.date = stoi(tempDate);
+    do {
+        cout << "Enter the income date in format yyyy-mm-dd. If you'd like current date press y" <<endl;
+        date = Utils::readLine();
+    } while( !DateManager::validateDate(date));
+    transaction.date = DateManager::convertStringDateToInt(date);
 
     cout << "Enter the expense name"<<endl;
     transaction.item = Utils::readLine();
@@ -50,15 +52,16 @@ Transaction TransactionManager::typeNewExpense() {
 Transaction TransactionManager::typeNewIncome() {
     Transaction transaction;
     string tempAmount;
-    string tempDate;
+    string date;
 
-    transaction.id = incomesFile.getTransactionLastId();
+    transaction.id = incomesFile.getTransactionLastId() +1;
     transaction.userId = LOGGED_IN_USER_ID;
-    do{
-    cout << "Enter the income date in format yyyy-mm-dd. If you'd like current date press y" <<endl;
-    tempDate = Utils::readLine();
-    }while( !DateManager::validateDate(tempDate) );
-    transaction.date=5;
+
+    do {
+        cout << "Enter the income date in format yyyy-mm-dd. If you'd like current date press y" <<endl;
+        date = Utils::readLine();
+    } while( !DateManager::validateDate(date) );
+    transaction.date = DateManager::convertStringDateToInt(date);
 
     cout << "Enter the income name"<<endl;
     transaction.item = Utils::readLine();
@@ -72,3 +75,48 @@ Transaction TransactionManager::typeNewIncome() {
 
     return transaction;
 }
+
+void TransactionManager::showBalance(int startDate, int endDate){
+
+    int expensesCounter = 0;
+    int incomesCounter = 0;
+    system("cls");
+    cout << "Your transactions: " << endl;
+    cout << "Icomes:" << endl;
+
+    for(Transaction transaction : incomes){
+        if( transaction.date >= startDate && transaction.date <= endDate){
+                incomesCounter++;
+            cout << incomesCounter << ".Income: " << transaction.item << " Date: " << DateManager::convertIntDateToStringWithDashes(transaction.date) <<
+            " Amount: " << transaction.amount << endl;
+        }
+    }
+
+    if(incomesCounter == 0){
+        cout << "There are not incomes in selected period" << endl;
+    }
+
+    cout << "Expenses:" << endl;
+
+    for(Transaction transaction : expenses){
+        if( transaction.date >= startDate && transaction.date <= endDate){
+                expensesCounter++;
+            cout << expensesCounter << ".Expense: " << transaction.item << " Date: " << DateManager::convertIntDateToStringWithDashes(transaction.date) <<
+            " Amount: " << transaction.amount << endl;
+        }
+    }
+
+    if(expensesCounter == 0){
+        cout << "There are not expenses in selected period" << endl;
+    }
+    system("pause");
+}
+
+void TransactionManager::showCurrentMonthBalance(){
+    showBalance(DateManager::getCurrentMonthFirstDayDate(), DateManager::getCurrentDate());
+}
+
+void TransactionManager::showPreviousMonthBalance(){
+    showBalance(DateManager::getPreviousMonthFirstDayDate(), DateManager::getPreviousMonthLastDayDate());
+}
+

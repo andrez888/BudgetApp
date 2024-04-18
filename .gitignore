@@ -2,3 +2,6 @@ bin/
 obj/
 BudgetApp.layout
 BudgetApp.depend
+incomes.xml
+expenses.xml
+users.xml

@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class  BudgetManager{
+class  BudgetManager {
     UserManager userManager;
     TransactionManager *transactionManager;
     const string FILE_WITH_EXPENSES_NAME;
@@ -19,17 +19,23 @@ public:
         userManager(userFileName), FILE_WITH_EXPENSES_NAME(expensesFileName), FILE_WITH_INCOMES_NAME(incomesFileName) {
         transactionManager = NULL;
     }
-    ~BudgetManager(){
+    ~BudgetManager() {
         delete transactionManager;
         transactionManager = NULL;
     }
+
     char chooseOptionFromUserMenu();
     char chooseOptionFromTransactionManager();
+
     void loginUser();
     void registrationUser();
     bool isUserLoggedIn();
-     void addNewExpense();
+
+    void addNewExpense();
     void addNewIncome();
+    void showCurrentMonthBalance();
+    void showPreviousMonthBalance();
+
 };
 
 #endif

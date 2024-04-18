@@ -60,3 +60,10 @@ void BudgetManager::addNewExpense(){
 void BudgetManager::addNewIncome(){
     transactionManager->addNewIncome();
 }
+
+void BudgetManager::showCurrentMonthBalance(){
+    transactionManager->showCurrentMonthBalance();
+}
+void BudgetManager::showPreviousMonthBalance(){
+    transactionManager->showPreviousMonthBalance();
+ }

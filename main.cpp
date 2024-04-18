@@ -6,60 +6,59 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     BudgetManager budgetManager("users.xml", "expenses.xml", "incomes.xml");
     char choice;
 
-    while(1){
-        if(!budgetManager.isUserLoggedIn()){
+    while(1) {
+        if(!budgetManager.isUserLoggedIn()) {
             choice = budgetManager.chooseOptionFromUserMenu();
-        switch(choice){
-        case '1':
-            budgetManager.loginUser();
-            break;
-        case '2':
-            budgetManager.registrationUser();
-            break;
-        case '3':
-            exit(0);
-            break;
-        default:
-            cout << "Incorrect choice" <<endl;
-            system("pause");
-            break;
-        }
-    }else{
-        choice = budgetManager.chooseOptionFromTransactionManager();
-        switch(choice){
-        case '1':
+            switch(choice) {
+            case '1':
+                budgetManager.loginUser();
+                break;
+            case '2':
+                budgetManager.registrationUser();
+                break;
+            case '3':
+                exit(0);
+                break;
+            default:
+                cout << "Incorrect choice" <<endl;
+                system("pause");
+                break;
+            }
+        } else {
+            choice = budgetManager.chooseOptionFromTransactionManager();
+            switch(choice) {
+            case '1':
                 budgetManager.addNewIncome();
-            break;
-        case '2':
+                break;
+            case '2':
                 budgetManager.addNewExpense();
-            break;
-        case '3':
-
-            break;
-             case '4':
-
-            break;
+                break;
+            case '3':
+                budgetManager.showPreviousMonthBalance();
+                break;
+            case '4':
+                budgetManager.showCurrentMonthBalance();
+                break;
             case '5':
 
-            break;
-        case '6':
-            exit(0);
-            break;
+                break;
+            case '6':
+                exit(0);
+                break;
             case '7':
 
-            break;
-        default:
-            cout << "Incorrect choice" <<endl;
-            system("pause");
-            break;
+                break;
+            default:
+                cout << "Incorrect choice" <<endl;
+                system("pause");
+                break;
 
-    }
-    }
+            }
+        }
     }
 
     return 0;

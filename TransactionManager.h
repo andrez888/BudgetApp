@@ -19,6 +19,8 @@ class TransactionManager {
 
     Transaction typeNewExpense() ;
     Transaction typeNewIncome();
+    void showBalance(int startDate, int endDate);
+
 public:
     TransactionManager(int loggedInUserId, string expensesFileName, string incomesFileName) :
         LOGGED_IN_USER_ID(loggedInUserId), expensesFile( expensesFileName), incomesFile(incomesFileName) {
@@ -28,9 +30,9 @@ public:
     void addNewExpense();
     void addNewIncome();
 
-    void ShowBalanceSheetofCurrentMonth();
-    void ShowBalanceSheetofPreviousMonth();
-    void ShowSheetofSelectedPeriod();
+    void showCurrentMonthBalance();
+    void showPreviousMonthBalance();
+    //void showSheetofSelectedPeriod();
 };
 
 #endif
