@@ -38,19 +38,19 @@ int main() {
                 budgetManager.addNewExpense();
                 break;
             case '3':
-                budgetManager.showPreviousMonthBalance();
-                break;
-            case '4':
                 budgetManager.showCurrentMonthBalance();
                 break;
+            case '4':
+                budgetManager.showPreviousMonthBalance();
+                break;
             case '5':
-
+                budgetManager.showSelectedPeriodBalance();
                 break;
             case '6':
-                exit(0);
+
                 break;
             case '7':
-
+                budgetManager.userLogOut();
                 break;
             default:
                 cout << "Incorrect choice" <<endl;

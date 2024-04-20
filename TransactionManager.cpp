@@ -80,9 +80,12 @@ void TransactionManager::showBalance(int startDate, int endDate){
 
     int expensesCounter = 0;
     int incomesCounter = 0;
+    sort(incomes.begin(), incomes.end(), &TransactionManager::compareByDate);
+    sort(expenses.begin(), expenses.end(), &TransactionManager::compareByDate);
     system("cls");
-    cout << "Your transactions: " << endl;
-    cout << "Icomes:" << endl;
+
+    cout << "Your transactions: " << endl << endl;
+    cout << "Incomes:" << endl;
 
     for(Transaction transaction : incomes){
         if( transaction.date >= startDate && transaction.date <= endDate){
@@ -96,7 +99,7 @@ void TransactionManager::showBalance(int startDate, int endDate){
         cout << "There are not incomes in selected period" << endl;
     }
 
-    cout << "Expenses:" << endl;
+    cout << endl << "Expenses:" << endl;
 
     for(Transaction transaction : expenses){
         if( transaction.date >= startDate && transaction.date <= endDate){
@@ -118,5 +121,31 @@ void TransactionManager::showCurrentMonthBalance(){
 
 void TransactionManager::showPreviousMonthBalance(){
     showBalance(DateManager::getPreviousMonthFirstDayDate(), DateManager::getPreviousMonthLastDayDate());
+}
+
+void TransactionManager::showSelectedPeriodBalance(){
+
+    system("cls");
+    string dateStart;
+    string dateEnd;
+    int dateStartInt, dateEndInt;
+
+    do{
+    cout << "Enter the date in format yyyy-mm-dd which from you'd like to start" << endl;
+    dateStart = Utils::readLine();
+    }while(!DateManager::validateDate(dateStart));
+    dateStartInt = DateManager::convertStringDateToInt(dateStart);
+
+    do{
+    cout << "Enter the date in format yyyy-mm-dd which from you'd like to end" << endl;
+    dateEnd = Utils::readLine();
+    }while(!DateManager::validateDate(dateEnd));
+    dateEndInt = DateManager::convertStringDateToInt(dateEnd);
+
+    showBalance(dateStartInt, dateEndInt);
+}
+
+bool TransactionManager::compareByDate(const Transaction& t1, const Transaction& t2) {
+    return t1.date < t2.date;
 }
 

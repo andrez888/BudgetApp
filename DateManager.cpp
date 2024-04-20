@@ -5,15 +5,15 @@ void DateManager::calculateCurrentDate(map<string,int> &currentDate) {
 
     tm* localTime = localtime(&currentTime);
 
-    currentDate["year"] = localTime->tm_year + 1900; // Years since 1900
-    currentDate["month"] = localTime->tm_mon + 1;    // Months start from 0
+    currentDate["year"] = localTime->tm_year + 1900;
+    currentDate["month"] = localTime->tm_mon + 1;
     currentDate["day"] = localTime->tm_mday;
 }
 
 bool DateManager::validateDate(string &date) {
 
-    map<string,int> currentDate;
-    int year,month,day;
+    map<string, int> currentDate;
+    int year, month, day;
     char dash1, dash2;
     stringstream ss(date);
 
@@ -35,9 +35,8 @@ bool DateManager::validateDate(string &date) {
         return false; // Extraction failed
     }
 
-    // Check if extraction was successful and separators are correct
     if (dash1 != '-' || dash2 != '-') {
-        return false; // Invalid separators
+        return false;
     }
 
     if (year < 2000 || year > currentDate["year"]) {
@@ -45,7 +44,6 @@ bool DateManager::validateDate(string &date) {
         return false;
     }
 
-    // Check if month is under or equal to current month and day is under or equal to current day
     if (month < 1 || month >12 || (year == currentDate["year"] && month > currentDate["month"])) {
         cout << "Invalid month. Try again" << endl;
         return false;
@@ -91,13 +89,12 @@ bool DateManager::validateDate(string &date) {
         }
         break;
     default:
-        // For all other months, ensure the day is not greater than 31
         cout << "Invalid day. Try again" << endl;
         return false;
         break;
     }
 
-    return true; // Date is valid
+    return true;
 }
 
 bool DateManager::isYearLeap(int year) {
@@ -161,9 +158,9 @@ int DateManager:: getPreviousMonthLastDayDate() {
     calculateCurrentDate(currentDate);
 
     previousYear = currentDate["year"];
-    previousMonth = currentDate["month"];
+    previousMonth = currentDate["month"] - 1;
 
-    if(previousMonth == 1) {
+    if(previousMonth == 0) {
         previousMonth = 12;
         previousYear--;
     }
@@ -193,10 +190,10 @@ int DateManager::getPreviousMonthFirstDayDate(){
     calculateCurrentDate(currentDate);
 
     previousYear = currentDate["year"];
-    previousMonth = currentDate["month"];
+    previousMonth = currentDate["month"] - 1;
     firstDay = 1;
 
-    if(previousMonth == 1) {
+    if(previousMonth == 0) {
         previousMonth = 12;
         previousYear--;
     }

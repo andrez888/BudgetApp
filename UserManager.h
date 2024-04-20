@@ -16,6 +16,7 @@ class UserManager {
 
     User typeNewUserdata();
     int getNewUserId();
+    bool doesLoginExist(string login);
 
 public:
     UserManager(string userFileName) : userFile(userFileName) {
@@ -23,13 +24,14 @@ public:
         users = userFile.loadUsersFromFile();
     }
 
-    bool doesLoginExist(string login);
+
     void userLogin();
     void userRegistartion();
     void changePassword();
     bool isUserLoggedIn();
     void showVector();
     int getLoggedInUserId();
+    void userLogOut();
 };
 
 #endif

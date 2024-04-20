@@ -7,6 +7,7 @@
 #include "DateManager.h"
 #include <vector>
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 class TransactionManager {
@@ -21,6 +22,7 @@ class TransactionManager {
     Transaction typeNewIncome();
     void showBalance(int startDate, int endDate);
 
+
 public:
     TransactionManager(int loggedInUserId, string expensesFileName, string incomesFileName) :
         LOGGED_IN_USER_ID(loggedInUserId), expensesFile( expensesFileName), incomesFile(incomesFileName) {
@@ -32,7 +34,9 @@ public:
 
     void showCurrentMonthBalance();
     void showPreviousMonthBalance();
-    //void showSheetofSelectedPeriod();
+    void showSelectedPeriodBalance();
+    static bool compareByDate(const Transaction& t1, const Transaction& t2);
+
 };
 
 #endif

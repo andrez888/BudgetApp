@@ -94,3 +94,7 @@ void UserManager::showVector(){
 int UserManager::getLoggedInUserId(){
     return loggedInUserId;
 }
+
+void UserManager::userLogOut(){
+    loggedInUserId = 0;
+}

@@ -10,7 +10,7 @@ void FileWithTransactions::addNewTransactionToFile(Transaction transaction) {
         xml.AddElem("Transactions");
 
     } else {
-        xml.FindElem(); // Move to the root element
+        xml.FindElem();
     }
 
     xml.IntoElem();

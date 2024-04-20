@@ -23,8 +23,8 @@
     cout << "---------------------------------------------- " << endl;
     cout <<"1. Add new income" << endl;
     cout <<"2. Add new expense" << endl;
-    cout << "3. Show balance from previous month" <<endl;
-    cout << "4. Show balance from current month" <<endl;
+    cout << "3. Show balance from current month" << endl;
+    cout << "4. Show balance from  previous month" << endl;
     cout <<"5. Show balance from selected period" << endl;
     cout <<"6. Change password " << endl;
     cout <<"7. Log out" << endl;
@@ -67,3 +67,13 @@ void BudgetManager::showCurrentMonthBalance(){
 void BudgetManager::showPreviousMonthBalance(){
     transactionManager->showPreviousMonthBalance();
  }
+
+void BudgetManager::showSelectedPeriodBalance(){
+    transactionManager-> showSelectedPeriodBalance();
+}
+
+void BudgetManager::userLogOut(){
+    delete transactionManager;
+    transactionManager = NULL;
+    userManager.userLogOut();
+}
