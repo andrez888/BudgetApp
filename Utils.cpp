@@ -19,6 +19,13 @@ char Utils::getCharacter() {
 
 string Utils::readLine() {
     string input = "";
-    getline(cin, input);
-    return input;
+    do {
+        getline(cin, input);
+        if(input.empty()) {
+            cout << "You typed blank. Please enter something" << endl;
+        }
+
+    } while(input.empty());
+
+        return input;
 }

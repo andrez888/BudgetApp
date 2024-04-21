@@ -11,6 +11,10 @@ struct Transaction {
     int date;
     string item;
     double amount;
+
+      bool operator<(const Transaction& other) const {
+        return date < other.date;
+    }
 };
 
 #endif

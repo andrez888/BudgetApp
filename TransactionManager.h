@@ -21,6 +21,7 @@ class TransactionManager {
     Transaction typeNewExpense() ;
     Transaction typeNewIncome();
     void showBalance(int startDate, int endDate);
+    double calculateBalance(int startDate, int endDate, vector<Transaction> &transactions);
 
 
 public:
@@ -35,7 +36,6 @@ public:
     void showCurrentMonthBalance();
     void showPreviousMonthBalance();
     void showSelectedPeriodBalance();
-    static bool compareByDate(const Transaction& t1, const Transaction& t2);
 
 };
 

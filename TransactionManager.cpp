@@ -80,8 +80,10 @@ void TransactionManager::showBalance(int startDate, int endDate){
 
     int expensesCounter = 0;
     int incomesCounter = 0;
-    sort(incomes.begin(), incomes.end(), &TransactionManager::compareByDate);
-    sort(expenses.begin(), expenses.end(), &TransactionManager::compareByDate);
+    double expensesSum = 0;
+    double incomesSum = 0;
+    sort(incomes.begin(), incomes.end());
+    sort(expenses.begin(), expenses.end());
     system("cls");
 
     cout << "Your transactions: " << endl << endl;
@@ -98,6 +100,8 @@ void TransactionManager::showBalance(int startDate, int endDate){
     if(incomesCounter == 0){
         cout << "There are not incomes in selected period" << endl;
     }
+    incomesSum = calculateBalance(startDate, endDate, incomes);
+    cout << "Sum of incomes = " << incomesSum << endl;
 
     cout << endl << "Expenses:" << endl;
 
@@ -112,6 +116,10 @@ void TransactionManager::showBalance(int startDate, int endDate){
     if(expensesCounter == 0){
         cout << "There are not expenses in selected period" << endl;
     }
+    expensesSum = calculateBalance(startDate, endDate, expenses);
+    cout << "Sum of expenses = " << expensesSum << endl;
+
+    cout << endl << "The difference beetwen incomes and expenses = " << incomesSum - expensesSum << endl;
     system("pause");
 }
 
@@ -145,7 +153,15 @@ void TransactionManager::showSelectedPeriodBalance(){
     showBalance(dateStartInt, dateEndInt);
 }
 
-bool TransactionManager::compareByDate(const Transaction& t1, const Transaction& t2) {
-    return t1.date < t2.date;
+double TransactionManager::calculateBalance(int startDate, int endDate, vector<Transaction> &transactions){
+    double balanceSum = 0;
+
+    for(Transaction transaction : transactions){
+        if(transaction.date >= startDate && transaction.date <= endDate){
+            balanceSum += transaction.amount;
+        }
+    }
+    return balanceSum;
 }
+
 

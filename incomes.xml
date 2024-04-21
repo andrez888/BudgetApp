@@ -42,4 +42,18 @@
 <Item>poczta2</Item>
 <Amount>210</Amount>
 </Transaction>
+<Transaction>
+<TransactionId>7</TransactionId>
+<UserId>1</UserId>
+<Date>20240421</Date>
+<Item>zwrot podatku</Item>
+<Amount>300</Amount>
+</Transaction>
+<Transaction>
+<TransactionId>8</TransactionId>
+<UserId>1</UserId>
+<Date>20240421</Date>
+<Item>prezent</Item>
+<Amount>400</Amount>
+</Transaction>
 </Transactions>
