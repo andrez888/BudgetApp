@@ -98,3 +98,25 @@ int UserManager::getLoggedInUserId(){
 void UserManager::userLogOut(){
     loggedInUserId = 0;
 }
+
+void UserManager::changePassword() {
+    system("cls");
+    string newPassword;
+
+    cout << "Type a new password" << endl;
+    newPassword = Utils::readLine();
+
+    if(userFile.changePasswordInFile(loggedInUserId, newPassword)) {
+        cout << "Your password has been changed" << endl;
+        for(User &user : users) {
+            if(user.id == loggedInUserId) {
+                user.password = newPassword;
+            }
+        }
+        system("pause");
+    } else {
+        cout << "Error. Enable to change password" << endl;
+        system("pause");
+    }
+}
+

@@ -27,11 +27,11 @@ public:
 
     void userLogin();
     void userRegistartion();
-    void changePassword();
     bool isUserLoggedIn();
     void showVector();
     int getLoggedInUserId();
     void userLogOut();
+    void changePassword;
 };
 
 #endif
