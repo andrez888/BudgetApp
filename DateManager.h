@@ -1,3 +1,6 @@
+#ifndef DATEMANAGER_H
+#define DATEMANAGER_H
+
 #include <iostream>
 #include <map>
 #include <ctime>
@@ -5,18 +8,17 @@
 #include <sstream>
 #include <iostream>
 
-
-
 using namespace std;
 class DateManager {
-   void static calculateCurrentDate(map<string,int> &currentDate);
-    bool static isYearLeap(int year) ;
+    static void  calculateCurrentDate(map<string,int> &currentDate);
+    static bool  isYearLeap(int year) ;
 public:
-    bool static validateDate(string &date);
-    int static convertStringDateToInt(const string &dateString);
-    string static convertIntDateToStringWithDashes(int dateInt);
-    int static getCurrentDate();
-    int static getCurrentMonthFirstDayDate();
-    int static getPreviousMonthLastDayDate();
-    int static getPreviousMonthFirstDayDate();
+    static bool  validateDate(string &date);
+    static int  convertStringDateToInt(const string &dateString);
+    static string  convertIntDateToStringWithDashes(int dateInt);
+    static int  getCurrentDate();
+    static int  getCurrentMonthFirstDayDate();
+    static int  getPreviousMonthLastDayDate();
+    static int  getPreviousMonthFirstDayDate();
 };
+#endif

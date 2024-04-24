@@ -49,7 +49,7 @@ bool Utils::validateAmount( string &amount) {
     double value;
     if (ss >> value) {
         char remaining;
-        if (!(ss >> remaining)) {
+        if (!(ss >> remaining) && value > 0 ) {
             return true;
         }
     }

@@ -22,10 +22,9 @@ void FileWithTransactions::addNewTransactionToFile(Transaction transaction) {
     xml.AddElem("Date", transaction.date);
     xml.AddElem("Item", transaction.item);
     xml.AddElem("Amount", transaction.amount);
-    xml.OutOfElem(); // Move out of <User>
+    xml.OutOfElem();
 
     xml.Save(FILE_NAME);
-
 }
 
 vector <Transaction>  FileWithTransactions::loadTransactionsFromFile(int loggedInUserId){
@@ -47,29 +46,32 @@ vector <Transaction>  FileWithTransactions::loadTransactionsFromFile(int loggedI
     while (xml.FindElem("Transaction")) {
         Transaction transaction;
         xml.IntoElem();
+
         xml.FindElem("TransactionId");
         transaction.id = stoi(xml.GetData());
         transactionLastId = transaction.id;
+
         xml.FindElem("UserId");
         int loadedUserId = stoi(xml.GetData());
-        if (loadedUserId != loggedInUserId) { // Check against the provided loggedInUserId
-            // Skip transactions not belonging to the logged-in user
-            xml.OutOfElem(); // Move out of <Transaction>
+        if (loadedUserId != loggedInUserId) {
+            xml.OutOfElem();
             continue;
         }
         transaction.userId = loadedUserId;
+
         xml.FindElem("Date");
         transaction.date = stoi(xml.GetData());
+
         xml.FindElem("Item");
         transaction.item = xml.GetData();
+
         xml.FindElem("Amount");
         transaction.amount = stod(xml.GetData());
-        xml.OutOfElem(); // Move out of <Transaction>
+
+        xml.OutOfElem();
+
         transactions.push_back(transaction);
     }
-
-
-
     return transactions;
 }
 

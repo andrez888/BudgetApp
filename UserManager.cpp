@@ -64,7 +64,7 @@ void UserManager::userLogin() {
             return;
         }
     }
-    cout << endl <<"Incorrect login";
+    cout << endl <<"Incorrect login" << endl;
     system("pause");
 }
 
