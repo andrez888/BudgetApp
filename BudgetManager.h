@@ -1,13 +1,12 @@
 #ifndef BUDGETMANAGER_H
 #define BUDGETMANAGER_H
 
-#include <iostream>
 #include "UserManager.h"
 #include "TransactionManager.h"
 #include "Utils.h"
+#include <iostream>
 
 using namespace std;
-
 class  BudgetManager {
     UserManager userManager;
     TransactionManager *transactionManager;
@@ -30,6 +29,7 @@ public:
     void loginUser();
     void registrationUser();
     bool isUserLoggedIn();
+    void changePassword();
 
     void addNewExpense();
     void addNewIncome();
@@ -37,7 +37,5 @@ public:
     void showPreviousMonthBalance();
     void showSelectedPeriodBalance();
     void userLogOut();
-
 };
-
 #endif

@@ -1,8 +1,5 @@
 #include <iostream>
 #include "BudgetManager.h"
-#include "User.h"
-#include <vector>
-
 
 using namespace std;
 
@@ -47,7 +44,7 @@ int main() {
                 budgetManager.showSelectedPeriodBalance();
                 break;
             case '6':
-
+                budgetManager.changePassword();
                 break;
             case '7':
                 budgetManager.userLogOut();
@@ -56,10 +53,8 @@ int main() {
                 cout << "Incorrect choice" <<endl;
                 system("pause");
                 break;
-
             }
         }
     }
-
     return 0;
 }

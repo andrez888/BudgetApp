@@ -75,8 +75,6 @@ void UserManager::userRegistartion() {
         userFile.addUserToFile(user);
 }
 
-void UserManager::changePassword() {}
-
 bool UserManager::isUserLoggedIn() {
     if(loggedInUserId > 0){
         return true;

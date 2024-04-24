@@ -77,3 +77,7 @@ void BudgetManager::userLogOut(){
     transactionManager = NULL;
     userManager.userLogOut();
 }
+
+void BudgetManager::changePassword() {
+    userManager.changePassword();
+}

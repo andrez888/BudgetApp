@@ -31,7 +31,7 @@ public:
     void showVector();
     int getLoggedInUserId();
     void userLogOut();
-    void changePassword;
+    void changePassword();
 };
 
 #endif
