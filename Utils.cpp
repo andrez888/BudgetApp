@@ -29,3 +29,32 @@ string Utils::readLine() {
 
         return input;
 }
+
+bool Utils::validateAmount( string &amount) {
+
+    for (char& c : amount) {
+        if (c == ',') {
+            c = '.';
+        }
+    }
+
+    if(amount[0] == '0') {
+        if(amount[1] != '.') {
+            cout << "Incorrect amount value" << endl;
+            return false;
+        }
+    }
+
+    stringstream ss(amount);
+    double value;
+    if (ss >> value) {
+        char remaining;
+        if (!(ss >> remaining)) {
+            return true;
+        }
+    }
+    cout << "Incorrect amount value" << endl;
+    return false;
+}
+
+
