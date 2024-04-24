@@ -7,7 +7,6 @@
 #include "User.h"
 
 using namespace std;
-
 class UserFile{
     const string FILE_NAME;
 
@@ -16,9 +15,6 @@ public:
     }
     void addUserToFile(const User &user);
     vector <User> loadUsersFromFile();
-
-
+    bool changePasswordInFile(int id, const string newPassword);
 };
-
-
 #endif
