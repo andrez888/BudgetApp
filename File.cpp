@@ -1,5 +1,5 @@
 #include "File.h"
 
-string File::getFileName() {
+string File::getFileName(){
     return FILE_NAME;
 }

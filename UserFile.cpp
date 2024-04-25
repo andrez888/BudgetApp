@@ -4,7 +4,7 @@ void UserFile::addUserToFile(const User &user) {
 
     CMarkup xml;
 
-    bool fileExists = xml.Load(FILE_NAME);
+    bool fileExists = xml.Load(getFileName());
 
     if (!fileExists) {
         xml.SetDoc("<?xml version=\"1.15\" encoding=\"UTF-8\"?>\r\n");
@@ -22,7 +22,7 @@ void UserFile::addUserToFile(const User &user) {
     xml.AddElem("Password", user.password);
     xml.OutOfElem();
 
-    xml.Save(FILE_NAME);
+    xml.Save(getFileName());
 }
 
 vector <User>  UserFile::loadUsersFromFile() {
@@ -30,7 +30,7 @@ vector <User>  UserFile::loadUsersFromFile() {
     CMarkup xml;
     vector<User> users;
 
-    if (xml.Load(FILE_NAME)) {
+    if (xml.Load(getFileName())) {
         xml.FindElem();
         xml.IntoElem();
 
@@ -60,7 +60,7 @@ vector <User>  UserFile::loadUsersFromFile() {
 bool UserFile::changePasswordInFile(int id, const string newPassword) {
     CMarkup xml;
 
-    if (xml.Load(FILE_NAME)) {
+    if (xml.Load(getFileName())) {
 
         if (xml.FindElem("Users")) {
             xml.IntoElem();
@@ -79,7 +79,7 @@ bool UserFile::changePasswordInFile(int id, const string newPassword) {
                 }
             }
         }
-        xml.Save(FILE_NAME);
+        xml.Save(getFileName());
         return true;
     } else {
         return false;

@@ -3,7 +3,7 @@
 void FileWithTransactions::addNewTransactionToFile(Transaction transaction) {
     CMarkup xml;
 
-    bool fileExists = xml.Load(FILE_NAME);
+    bool fileExists = xml.Load(getFileName());
 
     if (!fileExists) {
         xml.SetDoc("<?xml version=\"1.15\" encoding=\"UTF-8\"?>\r\n");
@@ -24,7 +24,7 @@ void FileWithTransactions::addNewTransactionToFile(Transaction transaction) {
     xml.AddElem("Amount", transaction.amount);
     xml.OutOfElem();
 
-    xml.Save(FILE_NAME);
+    xml.Save(getFileName());
 }
 
 vector <Transaction>  FileWithTransactions::loadTransactionsFromFile(int loggedInUserId){
@@ -32,7 +32,7 @@ vector <Transaction>  FileWithTransactions::loadTransactionsFromFile(int loggedI
     vector<Transaction> transactions;
 
     CMarkup xml;
-    if (!xml.Load(FILE_NAME)) {
+    if (!xml.Load(getFileName())); {
         cerr << "Failed to load transactions from file." << endl;
         return transactions;
     }
