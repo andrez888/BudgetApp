@@ -36,6 +36,8 @@
 		<Unit filename="BudgetManager.h" />
 		<Unit filename="DateManager.cpp" />
 		<Unit filename="DateManager.h" />
+		<Unit filename="File.cpp" />
+		<Unit filename="File.h" />
 		<Unit filename="FileWithTransactions.cpp" />
 		<Unit filename="FileWithTransactions.h" />
 		<Unit filename="Markup.cpp" />

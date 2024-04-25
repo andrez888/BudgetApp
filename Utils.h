@@ -11,5 +11,4 @@ public:
     static char getCharacter();
     static bool validateAmount(string &amount);
 };
-
 #endif

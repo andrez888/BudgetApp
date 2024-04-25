@@ -24,7 +24,6 @@ public:
         users = userFile.loadUsersFromFile();
     }
 
-
     void userLogin();
     void userRegistartion();
     bool isUserLoggedIn();
@@ -33,5 +32,4 @@ public:
     void userLogOut();
     void changePassword();
 };
-
 #endif

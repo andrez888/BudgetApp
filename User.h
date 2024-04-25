@@ -12,5 +12,4 @@ struct User {
     string login = "";
     string password = "";
 };
-
 #endif

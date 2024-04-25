@@ -27,7 +27,7 @@ Transaction TransactionManager::typeNewExpense() {
     string tempAmount;
     string date;
 
-    transaction.id = expensesFile.getTransactionLastId();
+    transaction.id = expensesFile.getTransactionLastId() + 1;
     transaction.userId = LOGGED_IN_USER_ID;
 
     do {

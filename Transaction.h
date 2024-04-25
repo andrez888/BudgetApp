@@ -16,5 +16,4 @@ struct Transaction {
         return date < other.date;
     }
 };
-
 #endif

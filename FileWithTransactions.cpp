@@ -16,12 +16,12 @@ void FileWithTransactions::addNewTransactionToFile(Transaction transaction) {
     xml.IntoElem();
     xml.AddElem("Transaction");
     xml.IntoElem();
-    xml.AddElem("TransactionId", transaction.id);
+    xml.AddElem("TransactionId", to_string(transaction.id));
     transactionLastId++;
-    xml.AddElem("UserId", transaction.userId);
-    xml.AddElem("Date", transaction.date);
+    xml.AddElem("UserId", to_string(transaction.userId));
+    xml.AddElem("Date", to_string(transaction.date));
     xml.AddElem("Item", transaction.item);
-    xml.AddElem("Amount", transaction.amount);
+    xml.AddElem("Amount", to_string(transaction.amount));
     xml.OutOfElem();
 
     xml.Save(getFileName());
@@ -32,8 +32,7 @@ vector <Transaction>  FileWithTransactions::loadTransactionsFromFile(int loggedI
     vector<Transaction> transactions;
 
     CMarkup xml;
-    if (!xml.Load(getFileName())); {
-        cerr << "Failed to load transactions from file." << endl;
+    if (!xml.Load(getFileName())) {
         return transactions;
     }
 

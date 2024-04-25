@@ -59,7 +59,7 @@ void UserManager::userLogin() {
                     return;
                 }
             }
-            cout <<endl<< "You have exceed the maximum number of password attempts";
+            cout <<endl<< "You have exceed the maximum number of password attempts" << endl;
             system("pause");
             return;
         }

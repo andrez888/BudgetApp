@@ -23,12 +23,11 @@ class TransactionManager {
     void showBalance(int startDate, int endDate);
     double calculateBalance(int startDate, int endDate, vector<Transaction> &transactions);
 
-
 public:
     TransactionManager(int loggedInUserId, string expensesFileName, string incomesFileName) :
         LOGGED_IN_USER_ID(loggedInUserId), expensesFile( expensesFileName), incomesFile(incomesFileName) {
-            expenses = expensesFile.loadTransactionsFromFile(LOGGED_IN_USER_ID);
-            incomes = incomesFile.loadTransactionsFromFile(LOGGED_IN_USER_ID);
+        expenses = expensesFile.loadTransactionsFromFile(LOGGED_IN_USER_ID);
+        incomes = incomesFile.loadTransactionsFromFile(LOGGED_IN_USER_ID);
     }
     void addNewExpense();
     void addNewIncome();
@@ -36,7 +35,5 @@ public:
     void showCurrentMonthBalance();
     void showPreviousMonthBalance();
     void showSelectedPeriodBalance();
-
 };
-
 #endif
