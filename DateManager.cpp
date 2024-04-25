@@ -14,8 +14,6 @@ bool DateManager::validateDate(string &date) {
 
     map<string, int> currentDate;
     int year, month, day;
-    char dash1, dash2;
-    stringstream ss(date);
 
     calculateCurrentDate(currentDate);
 
@@ -30,12 +28,19 @@ bool DateManager::validateDate(string &date) {
         return false;
     }
 
-    if (ss.fail() || !(ss >> year >> dash1 >> month >> dash2 >> day)) {
+    regex pattern("[0-9]{4}-[0-9]{2}-[0-9]{2}");
+
+    if (!regex_match(date, pattern)) {
         cout << "Incorrect date format. Try again" << endl;
-        return false; // Extraction failed
+        return false;
     }
 
-    if (dash1 != '-' || dash2 != '-') {
+    try {
+        year = stoi(date.substr(0, 4));
+        month = stoi(date.substr(5, 2));
+        day = stoi(date.substr(8, 2));
+    } catch (const exception& e) {
+        cerr << "Error: " << e.what() << endl;
         return false;
     }
 
@@ -46,10 +51,6 @@ bool DateManager::validateDate(string &date) {
 
     if (month < 1 || month >12 || (year == currentDate["year"] && month > currentDate["month"])) {
         cout << "Invalid month. Try again" << endl;
-        return false;
-    }
-    if((year == currentDate["year"] && month == currentDate["month"]) && day > currentDate["day"]  ) {
-        cout << "Invalid day. Try again" << endl;
         return false;
     }
 
@@ -181,7 +182,7 @@ int DateManager:: getPreviousMonthLastDayDate() {
     return previousMonthLastDayDate;
 }
 
-int DateManager::getPreviousMonthFirstDayDate(){
+int DateManager::getPreviousMonthFirstDayDate() {
 
     int previousYear, previousMonth, firstDay;
     int previousMonthFirstDayDate;

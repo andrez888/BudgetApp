@@ -1,12 +1,11 @@
 #ifndef DATEMANAGER_H
 #define DATEMANAGER_H
 
-#include <iostream>
 #include <map>
 #include <ctime>
 #include <iomanip>
-#include <sstream>
 #include <iostream>
+#include <regex>
 
 using namespace std;
 class DateManager {

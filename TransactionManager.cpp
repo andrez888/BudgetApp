@@ -31,7 +31,7 @@ Transaction TransactionManager::typeNewExpense() {
     transaction.userId = LOGGED_IN_USER_ID;
 
     do {
-        cout << "Enter the income date in format yyyy-mm-dd. If you'd like current date press y" <<endl;
+        cout << "Enter the expense date in format yyyy-mm-dd. If you'd like current date press y" <<endl;
         date = Utils::readLine();
     } while( !DateManager::validateDate(date));
     transaction.date = DateManager::convertStringDateToInt(date);
